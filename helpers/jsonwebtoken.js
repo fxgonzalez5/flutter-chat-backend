@@ -16,4 +16,13 @@ const generateJWT = (id) => {
     });
 };
 
-module.exports = generateJWT;
+const verifyJWT = (token = '') => {
+    try {
+        const { id } = jwt.verify(token, process.env.JWT_KEY);
+        return [true, id];
+    } catch (error) {
+        return [false, null];
+    }
+};
+
+module.exports = {generateJWT, verifyJWT};

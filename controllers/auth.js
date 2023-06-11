@@ -1,7 +1,7 @@
 const {response} = require('express');
 const bycrypt = require('bcryptjs');
 const Users = require('../models/user_model');
-const generateJWT = require('../helpers/jsonwebtoken');
+const {generateJWT} = require('../helpers/jsonwebtoken');
 
 const createUser = async (req, res = response) => {
     const {email, password} = req.body;
